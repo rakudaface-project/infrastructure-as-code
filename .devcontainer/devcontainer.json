@@ -13,8 +13,8 @@
       }
     }
   },
-  "postCreateCommand": "terraform init",
-  "remoteUser": "root",
+  "postCreateCommand": "cd src && terraform init -backend=false",
+  "remoteUser": "vscode",
   "forwardPorts": [],
   "mounts": ["source=${localWorkspaceFolder},target=/workspace,type=bind"]
 }

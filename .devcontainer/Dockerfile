@@ -1,11 +1,8 @@
-# Use an official HashiCorp Terraform image as a base
-FROM hashicorp/terraform:latest
+# Use a pinned Terraform image for reproducible and auditable builds
+FROM hashicorp/terraform:1.6.6
 
-# Install additional dependencies if necessary
-RUN apk update && apk upgrade
+# Create a non-root user for development
+RUN addgroup -S vscode && adduser -S vscode -G vscode
 
 # Set the working directory in the container
 WORKDIR /workspace
-
-# Copy the project files into the container
-COPY . .
